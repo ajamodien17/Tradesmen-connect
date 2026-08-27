@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>TradeConnect — Skill first. Paperwork clearly labeled.</title>
+<meta name="description" content="TradeConnect connects new grads and self-taught tradespeople in Cape Town with employers, through a trust ladder built for people who don't have a job history yet." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;700;800&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#22262B;
+    --steel:#3A5A78;
+    --verified:#2F6844;
+    --rust:#B5451E;
+    --paper:#EDEAE3;
+    --paper-dark:#E1DDD3;
+    --card:#FAF8F4;
+    --rivet:#C7C2B6;
+    --grey:#5C6570;
+    --display: 'Big Shoulders Display', sans-serif;
+    --body: 'IBM Plex Sans', sans-serif;
+    --mono: 'IBM Plex Mono', monospace;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--paper-dark);
+    color:var(--ink);
+    font-family:var(--body);
+    line-height:1.5;
+  }
+  a{color:inherit;}
+  img{max-width:100%;}
+  :focus-visible{outline:3px solid var(--steel); outline-offset:2px;}
+
+  .wrap{max-width:1100px; margin:0 auto; padding:0 24px;}
+
+  /* Header */
+  header{
+    background:var(--ink);
+    position:sticky; top:0; z-index:50;
+    border-bottom:1px solid rgba(255,255,255,0.08);
+  }
+  header .inner{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:18px 24px; max-width:1100px; margin:0 auto;
+  }
+  .logo{display:flex; align-items:center; gap:10px;}
+  .logo-mark{
+    width:34px; height:34px; border-radius:3px;
+    background:var(--steel);
+    display:flex; align-items:center; justify-content:center;
+    color:var(--paper); font-family:var(--mono); font-weight:600; font-size:15px;
+  }
+  .logo-text{
+    font-family:var(--display); font-weight:800; font-size:22px;
+    color:var(--paper); letter-spacing:0.02em;
+  }
+  nav a{
+    font-family:var(--mono); font-size:12px; color:#9AA3AC;
+    text-decoration:none; margin-left:24px; letter-spacing:0.03em;
+  }
+  nav a:hover{color:var(--paper);}
+  .nav-cta{
+    background:var(--rust); color:#fff !important; padding:9px 16px;
+    border-radius:3px; font-weight:600;
+  }
+
+  /* Hero */
+  .hero{padding:88px 0 64px;}
+  .eyebrow{
+    font-family:var(--mono); font-size:12px; letter-spacing:0.08em;
+    color:var(--rust); font-weight:600; margin-bottom:18px;
+    display:flex; align-items:center; gap:10px;
+  }
+  .eyebrow::before{content:''; width:26px; height:2px; background:var(--rust); display:inline-block;}
+  h1{
+    font-family:var(--display); font-weight:700; font-size:clamp(42px,7vw,76px);
+    line-height:0.96; margin:0 0 24px; letter-spacing:-0.01em;
+  }
+  h1 .accent{color:var(--steel);}
+  .hero-sub{
+    font-size:19px; color:#454C54; max-width:560px; margin:0 0 36px;
+  }
+  .hero-ctas{display:flex; gap:14px; flex-wrap:wrap;}
+  .btn{
+    font-family:var(--mono); font-weight:600; font-size:13px;
+    padding:14px 24px; border-radius:3px; text-decoration:none;
+    letter-spacing:0.02em; display:inline-flex; align-items:center; gap:8px;
+    border:1px solid transparent; cursor:pointer;
+    transition: transform 0.15s ease;
+  }
+  .btn:active{transform:scale(0.98);}
+  .btn-primary{background:var(--ink); color:var(--paper);}
+  .btn-outline{background:transparent; color:var(--ink); border-color:var(--rivet);}
+
+  /* Ticket-stub divider used as signature element */
+  .stub-divider{
+    display:flex; align-items:center; gap:12px; margin:64px 0 40px;
+  }
+  .stub-divider .stub{
+    font-family:var(--mono); font-size:11px; color:var(--grey);
+    background:var(--card); border:1px dashed var(--rivet);
+    padding:6px 12px; border-radius:3px; white-space:nowrap;
+  }
+  .stub-divider .line{flex:1; height:1px; background:var(--rivet);}
+
+  /* Problem section */
+  .problem{padding:20px 0 60px;}
+  .problem h2{font-family:var(--display); font-size:38px; font-weight:700; margin:0 0 20px;}
+  .problem p{font-size:17px; color:#454C54; max-width:680px;}
+  .problem-grid{
+    display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:16px; margin-top:32px;
+  }
+  .problem-card{
+    background:var(--card); border:1px solid var(--rivet); border-radius:4px;
+    padding:20px;
+  }
+  .problem-card .num{font-family:var(--mono); color:var(--rust); font-size:12px; font-weight:600;}
+  .problem-card p{font-size:14px; margin:10px 0 0; color:var(--ink);}
+
+  /* Product preview — real worker cards, matching the app */
+  .preview-section{padding:60px 0;}
+  .preview-section h2{font-family:var(--display); font-size:38px; font-weight:700; margin:0 0 12px;}
+  .preview-section > .wrap > p{font-size:17px; color:#454C54; max-width:640px; margin-bottom:36px;}
+  .preview-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:20px;}
+  @media(max-width:760px){.preview-grid{grid-template-columns:1fr;}}
+
+  .worker-card{
+    background:var(--card); border:1px solid var(--rivet); border-radius:6px; overflow:hidden;
+    box-shadow:0 1px 0 rgba(0,0,0,0.03), 0 8px 20px -12px rgba(34,38,43,0.25);
+  }
+  .worker-card .bar{height:6px; width:100%;}
+  .bar-licensed{background:var(--verified);}
+  .bar-skill{background:#B5651D;}
+  .bar-building{background:#9AA3AC;}
+  .bar-entry{background:var(--steel);}
+  .worker-card .body{padding:20px 20px 20px 26px;}
+  .wc-top{display:flex; align-items:flex-start; justify-content:space-between; gap:12px;}
+  .wc-name{font-family:var(--display); font-weight:700; font-size:20px; margin:0;}
+  .wc-meta{display:flex; align-items:center; gap:6px; font-size:13px; color:var(--grey); margin-top:2px;}
+  .wc-badge{
+    font-family:var(--mono); font-size:11px; font-weight:600; letter-spacing:0.03em;
+    padding:5px 9px; border-radius:3px; white-space:nowrap; display:inline-flex; align-items:center; gap:5px;
+  }
+  .wc-blurb{font-size:13px; color:#454C54; margin:12px 0 0; line-height:1.5;}
+  .wc-credential{
+    font-family:var(--mono); font-size:11px; color:var(--grey); background:var(--paper);
+    padding:8px 10px; border-radius:3px; margin-top:12px;
+  }
+  .wc-box{
+    font-size:11px; margin-top:8px; padding:8px 10px; border-radius:3px; line-height:1.5;
+  }
+  .wc-box-entry{background:rgba(58,90,120,0.06); border:1px solid rgba(58,90,120,0.2); color:#454C54;}
+  .wc-box-endorse{background:rgba(181,101,29,0.06); border:1px solid rgba(181,101,29,0.2); color:#454C54;}
+  .wc-box-title{font-family:var(--mono); font-size:9px; font-weight:600; letter-spacing:0.04em; display:block; margin-bottom:5px;}
+  .wc-stats{display:flex; align-items:center; justify-content:space-between; margin-top:14px; font-size:13px;}
+  .wc-stats .left{display:flex; gap:12px; align-items:center; color:var(--grey);}
+  .wc-rate{font-family:var(--mono); font-weight:600; font-size:16px;}
+  .wc-cta{
+    margin-top:14px; width:100%; padding:10px; border-radius:3px; border:none;
+    background:var(--ink); color:var(--paper); font-family:var(--mono); font-size:12px; font-weight:600; cursor:default;
+  }
+
+  .caption-tag{
+    font-family:var(--mono); font-size:11px; color:var(--grey); text-align:center; margin-top:14px;
+  }
+
+  /* Trial job card preview */
+  .trial-preview{max-width:460px; margin:0 auto;}
+  .trial-card{
+    background:var(--card); border:1px solid var(--rivet); border-radius:6px; overflow:hidden;
+    box-shadow:0 1px 0 rgba(0,0,0,0.03), 0 8px 20px -12px rgba(34,38,43,0.25);
+  }
+  .trial-card .bar{height:6px; background:var(--rust);}
+  .trial-card .body{padding:20px;}
+  .trial-tag{font-family:var(--mono); font-size:10px; font-weight:600; letter-spacing:0.04em; color:var(--rust); display:block; margin-bottom:8px;}
+  .trial-card h4{font-family:var(--display); font-size:20px; font-weight:700; margin:0 0 4px;}
+  .trial-meta{font-size:13px; color:var(--grey); margin-bottom:12px;}
+  .trial-desc{font-size:13px; color:#454C54; margin-bottom:14px; line-height:1.5;}
+  .trial-tags{display:flex; gap:8px; flex-wrap:wrap; margin-bottom:14px;}
+  .trial-pill{font-family:var(--mono); font-size:10px; padding:5px 9px; border-radius:3px;}
+  .pill-open{background:rgba(58,90,120,0.08); color:var(--steel); border:1px solid rgba(58,90,120,0.25);}
+  .pill-tools{background:var(--paper); color:var(--grey);}
+  .trial-footer{display:flex; align-items:center; justify-content:space-between;}
+  .trial-pay{font-family:var(--mono); font-weight:600; font-size:18px;}
+
+  /* Features */
+  .features{padding:60px 0;}
+  .features h2{font-family:var(--display); font-size:38px; font-weight:700; margin:0 0 36px;}
+  .feature-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:20px;}
+  .feature-card{
+    background:var(--card); border:1px solid var(--rivet); border-radius:4px; padding:26px;
+    position:relative; overflow:hidden;
+  }
+  .feature-card::before{
+    content:''; position:absolute; top:0; left:0; right:0; height:4px;
+  }
+  .feature-card.f1::before{background:var(--rust);}
+  .feature-card.f2::before{background:var(--steel);}
+  .feature-card.f3::before{background:var(--verified);}
+  .feature-tag{font-family:var(--mono); font-size:11px; font-weight:600; letter-spacing:0.04em; color:var(--grey); margin-bottom:10px; display:block;}
+  .feature-card h3{font-family:var(--display); font-size:24px; font-weight:700; margin:0 0 10px;}
+  .feature-card p{font-size:14px; color:var(--grey); margin:0;}
+
+  /* Audience split */
+  .audience{padding:60px 0;}
+  .audience-grid{display:grid; grid-template-columns:1fr 1fr; gap:20px;}
+  @media(max-width:720px){.audience-grid{grid-template-columns:1fr;} .rung{grid-template-columns:1fr;}}
+  .audience-card{
+    padding:32px; border-radius:4px; border:1px solid var(--rivet);
+  }
+  .audience-card.worker{background:var(--ink); color:var(--paper);}
+  .audience-card.employer{background:var(--card); color:var(--ink);}
+  .audience-card h3{font-family:var(--display); font-size:28px; font-weight:700; margin:0 0 12px;}
+  .audience-card p{font-size:15px; margin:0 0 20px; opacity:0.9;}
+  .audience-card .btn-outline{border-color:rgba(255,255,255,0.3); color:var(--paper);}
+  .audience-card.employer .btn-outline{border-color:var(--rivet); color:var(--ink);}
+
+  /* Waitlist */
+  .waitlist{padding:70px 0 100px;}
+  .waitlist-box{
+    background:var(--ink); border-radius:6px; padding:48px;
+    display:grid; grid-template-columns:1.1fr 1fr; gap:40px; align-items:center;
+  }
+  @media(max-width:760px){.waitlist-box{grid-template-columns:1fr;}}
+  .waitlist-box h2{font-family:var(--display); color:var(--paper); font-size:34px; font-weight:700; margin:0 0 14px;}
+  .waitlist-box p{color:#C7CDD3; font-size:15px; margin:0;}
+  form{display:flex; flex-direction:column; gap:12px;}
+  .form-row{display:flex; gap:10px; flex-wrap:wrap;}
+  select, input[type="email"], input[type="text"]{
+    font-family:var(--body); font-size:14px; padding:12px 14px;
+    border-radius:3px; border:1px solid var(--rivet); background:var(--paper);
+    color:var(--ink); flex:1; min-width:140px;
+  }
+  .waitlist-box .btn-primary{background:var(--rust); justify-content:center;}
+  .confirm-msg{
+    font-family:var(--mono); font-size:13px; color:#8FCB9F; display:none; margin-top:6px;
+  }
+  .confirm-msg.show{display:block;}
+
+  footer{padding:40px 0; border-top:1px solid var(--rivet);}
+  footer .wrap{display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px;}
+  footer p{font-size:13px; color:var(--grey); margin:0; font-family:var(--mono);}
+
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    .btn{transition:none;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="inner">
+    <div class="logo">
+      <div class="logo-mark">TC</div>
+      <span class="logo-text">TRADECONNECT</span>
+    </div>
+    <nav>
+      <a href="#problem">The problem</a>
+      <a href="#ladder">Trust ladder</a>
+      <a href="#features">How it works</a>
+      <a href="#waitlist" class="nav-cta">Join the waitlist</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <div class="eyebrow">CAPE TOWN &middot; LAUNCHING SOON</div>
+    <h1>Skill first.<br>Paperwork <span class="accent">clearly labeled.</span></h1>
+    <p class="hero-sub">TradeConnect connects new trade school grads and self-taught tradespeople with employers — through a trust system built for people who don't have a job history yet, not one that excludes them for it.</p>
+    <div class="hero-ctas">
+      <a href="#waitlist" class="btn btn-primary">Join the waitlist</a>
+      <a href="#problem" class="btn btn-outline">See the problem we're solving</a>
+    </div>
+  </div>
+</section>
+
+<section id="problem" class="problem">
+  <div class="wrap">
+    <div class="stub-divider"><span class="stub">01 · THE GAP</span><span class="line"></span></div>
+    <h2>Getting your first job shouldn't require already having one.</h2>
+    <p>Most platforms verify people who are already established — a license, a rating history, years on the job. That works well for experienced pros. It works against everyone else.</p>
+    <div class="problem-grid">
+      <div class="problem-card"><span class="num">FOR GRADS</span><p>You finished the diploma. You still can't get hired, because every listing wants "2+ years experience."</p></div>
+      <div class="problem-card"><span class="num">FOR SELF-TAUGHT WORKERS</span><p>You learned on real job sites, from real tradespeople — but there's no certificate for that, and no platform that shows it.</p></div>
+      <div class="problem-card"><span class="num">FOR EMPLOYERS</span><p>You'd take a chance on someone new — if there were a low-risk way to actually do it.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="ladder" class="preview-section">
+  <div class="wrap">
+    <div class="stub-divider"><span class="stub">02 · THE SYSTEM</span><span class="line"></span></div>
+    <h2>This is what employers actually see.</h2>
+    <p>Not a promise, not a description — the real profile cards, exactly as they'll appear in the app. Every tier shows what's actually true about the person, nothing more.</p>
+
+    <div class="preview-grid">
+
+      <div class="worker-card">
+        <div class="bar bar-licensed"></div>
+        <div class="body">
+          <div class="wc-top">
+            <div>
+              <p class="wc-name">Marcus Webb</p>
+              <div class="wc-meta">Electrical &middot; Newark, NJ</div>
+            </div>
+            <span class="wc-badge" style="background:rgba(47,104,68,0.1); color:var(--verified); border:1px solid rgba(47,104,68,0.35);">✓ LICENSED</span>
+          </div>
+          <p class="wc-blurb">Panel upgrades, EV charger installs, commercial rough-in.</p>
+          <div class="wc-credential">Journeyman Electrician — Lic. #EL48291</div>
+          <div class="wc-stats">
+            <div class="left"><span>★ 4.9</span><span>41 jobs</span><span>6yr</span></div>
+            <span class="wc-rate">$34/hr</span>
+          </div>
+          <button class="wc-cta">Request quote</button>
+        </div>
+      </div>
+
+      <div class="worker-card">
+        <div class="bar bar-skill"></div>
+        <div class="body">
+          <div class="wc-top">
+            <div>
+              <p class="wc-name">Priya Anand</p>
+              <div class="wc-meta">Welding &middot; Newark, NJ</div>
+            </div>
+            <span class="wc-badge" style="background:rgba(181,101,29,0.12); color:#B5651D; border:1px solid rgba(181,101,29,0.35);">⚡ SKILL-VERIFIED</span>
+          </div>
+          <p class="wc-blurb">Self-taught MIG/TIG, trained under a shop foreman for 2 years.</p>
+          <div class="wc-credential">Portfolio: 22 completed jobs</div>
+          <div class="wc-box wc-box-endorse">
+            <span class="wc-box-title" style="color:#B5651D;">VOUCHED BY 3 LICENSED WORKERS</span>
+            Marcus Webb (Electrical) — Panel room fit-out<br>+ 2 more
+          </div>
+          <div class="wc-stats">
+            <div class="left"><span>★ 4.8</span><span>22 jobs</span><span>2yr</span></div>
+            <span class="wc-rate">$26/hr</span>
+          </div>
+          <button class="wc-cta">Request quote</button>
+        </div>
+      </div>
+
+      <div class="worker-card">
+        <div class="bar bar-building"></div>
+        <div class="body">
+          <div class="wc-top">
+            <div>
+              <p class="wc-name">Tyler Voss</p>
+              <div class="wc-meta">Electrical &middot; Newark, NJ</div>
+            </div>
+            <span class="wc-badge" style="background:rgba(90,98,107,0.1); color:var(--grey); border:1px solid rgba(90,98,107,0.35);">◷ 3/10 JOBS</span>
+          </div>
+          <p class="wc-blurb">Learning under a licensed electrician on residential rewires.</p>
+          <div class="wc-credential">New on the platform · 3 completed jobs</div>
+          <div class="wc-box wc-box-entry" style="background:rgba(90,98,107,0.06); border-color:rgba(90,98,107,0.2);">
+            Needs 7 more completed jobs to qualify for skill-verified status.
+          </div>
+          <div class="wc-stats">
+            <div class="left"><span>★ 4.9</span><span>3 jobs</span></div>
+            <span class="wc-rate">$19/hr</span>
+          </div>
+          <button class="wc-cta">Offer a trial job</button>
+        </div>
+      </div>
+
+      <div class="worker-card">
+        <div class="bar bar-entry"></div>
+        <div class="body">
+          <div class="wc-top">
+            <div>
+              <p class="wc-name">Amara Osei</p>
+              <div class="wc-meta">HVAC &middot; Newark, NJ</div>
+            </div>
+            <span class="wc-badge" style="background:rgba(58,90,120,0.1); color:var(--steel); border:1px solid rgba(58,90,120,0.35);">🔧 ENTRY-LEVEL</span>
+          </div>
+          <p class="wc-blurb">Fresh trade school grad. Completed 60hrs of supervised lab hours, no paid jobs yet.</p>
+          <div class="wc-credential">HVAC/R Diploma, Union County Tech — May 2026</div>
+          <div class="wc-box wc-box-entry">
+            <span class="wc-box-title" style="color:var(--steel);">WHAT'S ON FILE</span>
+            Diploma: HVAC/R Certificate, verified by school<br>
+            Instructor vouch: Program lead confirms competency<br>
+            Portfolio: 4 lab project videos on file
+          </div>
+          <div class="wc-stats">
+            <div class="left"><span>No paid jobs yet</span></div>
+            <span class="wc-rate">$17/hr</span>
+          </div>
+          <button class="wc-cta">Offer a trial job</button>
+        </div>
+      </div>
+
+    </div>
+    <p class="caption-tag">↑ Four real profile states — from a first-time grad to a licensed veteran, shown honestly side by side</p>
+  </div>
+</section>
+
+<section id="features" class="features">
+  <div class="wrap">
+    <div class="stub-divider"><span class="stub">03 · HOW IT WORKS</span><span class="line"></span></div>
+    <h2>Built to give someone a real first shot.</h2>
+    <div class="feature-grid">
+      <div class="feature-card f1">
+        <span class="feature-tag">TRIAL JOBS</span>
+        <h3>A low-risk way in</h3>
+        <p>Short, defined jobs employers post specifically for entry-level and building-tier workers. Real pay, real work, no long commitment either way.</p>
+      </div>
+      <div class="feature-card f2">
+        <span class="feature-tag">MENTOR PAIRING</span>
+        <h3>Learn on real jobs</h3>
+        <p>Licensed workers can take on an apprentice for supervised jobs. Every job completed together builds job history and comes with a real endorsement.</p>
+      </div>
+      <div class="feature-card f3">
+        <span class="feature-tag">HONEST PROFILES</span>
+        <h3>No guessing games</h3>
+        <p>Employers see exactly what's behind every badge — a license number, or the specific jobs and endorsements that earned the tier.</p>
+      </div>
+    </div>
+
+    <div class="trial-preview" style="margin-top:40px;">
+      <div class="trial-card">
+        <div class="bar"></div>
+        <div class="body">
+          <span class="trial-tag">TRIAL JOB · Okafor Air Systems</span>
+          <h4>Assist duct sealing on 2-unit HVAC job</h4>
+          <div class="trial-meta">HVAC &middot; Newark, NJ</div>
+          <p class="trial-desc">Entry-level friendly. You'll shadow and assist with duct sealing, no prior paid experience required — just show up ready to learn.</p>
+          <div class="trial-tags">
+            <span class="trial-pill pill-open">Open to: entry-level only</span>
+            <span class="trial-pill pill-tools">Tools provided</span>
+          </div>
+          <div class="trial-footer">
+            <span style="font-size:13px; color:var(--grey);">Half day</span>
+            <span class="trial-pay">R1,600</span>
+          </div>
+        </div>
+      </div>
+      <p class="caption-tag">↑ A real trial job posting — low commitment, real pay, built for someone's first shot</p>
+    </div>
+  </div>
+</section>
+
+<section class="audience">
+  <div class="wrap">
+    <div class="stub-divider"><span class="stub">04 · WHO IT'S FOR</span><span class="line"></span></div>
+    <div class="audience-grid">
+      <div class="audience-card worker">
+        <h3>For tradespeople</h3>
+        <p>New grad, self-taught, or somewhere in between — build a real, honest track record starting from your very first job.</p>
+        <a href="#waitlist" class="btn btn-outline">Join as a worker</a>
+      </div>
+      <div class="audience-card employer">
+        <h3>For employers</h3>
+        <p>Post a trial job, see exactly who you're hiring, and take a low-risk chance on someone who's ready to prove themselves.</p>
+        <a href="#waitlist" class="btn btn-outline">Join as an employer</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="waitlist" class="waitlist">
+  <div class="wrap">
+    <div class="waitlist-box">
+      <div>
+        <h2>Be first in when we launch in Cape Town.</h2>
+        <p>We're testing this with a small group before opening it up. Tell us which side you're on and we'll reach out when there's a trial job or worker ready for you.</p>
+      </div>
+      <form id="waitlist-form" onsubmit="return handleWaitlistSubmit(event)">
+        <div class="form-row">
+          <input type="text" placeholder="Your name" required aria-label="Your name" />
+          <select required aria-label="I am a...">
+            <option value="" disabled selected>I am a...</option>
+            <option value="worker">Tradesperson / worker</option>
+            <option value="employer">Employer</option>
+          </select>
+        </div>
+        <input type="email" placeholder="you@email.com" required aria-label="Email address" />
+        <button type="submit" class="btn btn-primary">Join the waitlist</button>
+        <span class="confirm-msg" id="confirm-msg">You're on the list — we'll be in touch before launch.</span>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p>TRADECONNECT &middot; CAPE TOWN, SOUTH AFRICA</p>
+    <p>BUILT TO GIVE SOMEONE A REAL FIRST SHOT</p>
+  </div>
+</footer>
+
+<script>
+  function handleWaitlistSubmit(e){
+    e.preventDefault();
+    // No backend connected yet — this is a static validation site.
+    // Replace this with a real form endpoint (Formspree, Google Form, etc.) before sharing widely.
+    document.getElementById('confirm-msg').classList.add('show');
+    e.target.reset();
+    return false;
+  }
+</script>
+
+</body>
+</html>
