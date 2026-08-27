@@ -264,7 +264,7 @@
       <a href="#problem">The problem</a>
       <a href="#ladder">Trust ladder</a>
       <a href="#features">How it works</a>
-      <a href="#waitlist" class="nav-cta">Join the waitlist</a>
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSdF8IBaFT93OoSPWASZ6hHtJ3fcRmziiuKHAmRZyeM00JUBqw/viewform" target="_blank" rel="noopener" class="nav-cta">Join the waitlist</a>
     </nav>
   </div>
 </header>
@@ -275,7 +275,7 @@
     <h1>Skill first.<br>Paperwork <span class="accent">clearly labeled.</span></h1>
     <p class="hero-sub">TradeConnect connects new trade school grads and self-taught tradespeople with employers — through a trust system built for people who don't have a job history yet, not one that excludes them for it.</p>
     <div class="hero-ctas">
-      <a href="#waitlist" class="btn btn-primary">Join the waitlist</a>
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSdF8IBaFT93OoSPWASZ6hHtJ3fcRmziiuKHAmRZyeM00JUBqw/viewform" target="_blank" rel="noopener" class="btn btn-primary">Join the waitlist</a>
       <a href="#problem" class="btn btn-outline">See the problem we're solving</a>
     </div>
   </div>
@@ -452,12 +452,12 @@
       <div class="audience-card worker">
         <h3>For tradespeople</h3>
         <p>New grad, self-taught, or somewhere in between — build a real, honest track record starting from your very first job.</p>
-        <a href="#waitlist" class="btn btn-outline">Join as a worker</a>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSdF8IBaFT93OoSPWASZ6hHtJ3fcRmziiuKHAmRZyeM00JUBqw/viewform" target="_blank" rel="noopener" class="btn btn-outline">Join as a worker</a>
       </div>
       <div class="audience-card employer">
         <h3>For employers</h3>
         <p>Post a trial job, see exactly who you're hiring, and take a low-risk chance on someone who's ready to prove themselves.</p>
-        <a href="#waitlist" class="btn btn-outline">Join as an employer</a>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSdF8IBaFT93OoSPWASZ6hHtJ3fcRmziiuKHAmRZyeM00JUBqw/viewform" target="_blank" rel="noopener" class="btn btn-outline">Join as an employer</a>
       </div>
     </div>
   </div>
@@ -465,24 +465,14 @@
 
 <section id="waitlist" class="waitlist">
   <div class="wrap">
-    <div class="waitlist-box">
+    <div class="waitlist-box" style="grid-template-columns:1fr; text-align:center;">
       <div>
         <h2>Be first in when we launch in Cape Town.</h2>
         <p>We're testing this with a small group before opening it up. Tell us which side you're on and we'll reach out when there's a trial job or worker ready for you.</p>
-      </div>
-      <form id="waitlist-form" onsubmit="return handleWaitlistSubmit(event)">
-        <div class="form-row">
-          <input type="text" placeholder="Your name" required aria-label="Your name" />
-          <select required aria-label="I am a...">
-            <option value="" disabled selected>I am a...</option>
-            <option value="worker">Tradesperson / worker</option>
-            <option value="employer">Employer</option>
-          </select>
+        <div style="margin-top:24px;">
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSdF8IBaFT93OoSPWASZ6hHtJ3fcRmziiuKHAmRZyeM00JUBqw/viewform" target="_blank" rel="noopener" class="btn btn-primary" style="background:var(--rust);">Join the waitlist</a>
         </div>
-        <input type="email" placeholder="you@email.com" required aria-label="Email address" />
-        <button type="submit" class="btn btn-primary">Join the waitlist</button>
-        <span class="confirm-msg" id="confirm-msg">You're on the list — we'll be in touch before launch.</span>
-      </form>
+      </div>
     </div>
   </div>
 </section>
@@ -493,17 +483,6 @@
     <p>BUILT TO GIVE SOMEONE A REAL FIRST SHOT</p>
   </div>
 </footer>
-
-<script>
-  function handleWaitlistSubmit(e){
-    e.preventDefault();
-    // No backend connected yet — this is a static validation site.
-    // Replace this with a real form endpoint (Formspree, Google Form, etc.) before sharing widely.
-    document.getElementById('confirm-msg').classList.add('show');
-    e.target.reset();
-    return false;
-  }
-</script>
 
 </body>
 </html>
